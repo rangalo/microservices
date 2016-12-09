@@ -1,0 +1,12 @@
+version: "2"
+services:
+    blog:
+        build: .
+        ports:
+            - 18080:8080
+            - 18181:8181
+            - 19990:9990
+        depends_on:
+            - mysqldb
+    mysqldb:
+        image: rangalo/mysql57

@@ -1,0 +1,6 @@
+# Start batching commands
+connect
+
+
+module add --name=com.mysql --resources=mysql-connector-java-5.1.40-bin.jar --dependencies=javax.api,javax.transaction.api
+/subsystem=datasources/jdbc-driver=com.mysql:add(driver-name=com.mysql,driver-module-name=com.mysql)

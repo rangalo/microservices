@@ -1,0 +1,3 @@
+connect
+
+data-source add --jndi-name=java:/jboss/datasources/BlogDS --name=BlogDS --connection-url=jdbc:mysql://mysqldb:3306/blog?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;autoReconnectForPools=true --driver-name=com.mysql --user-name=blog --password=blog --background-validation=true --check-valid-connection-sql="SELECT 1" --background-validation-millis=6000000
