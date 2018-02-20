@@ -9,7 +9,7 @@ BLOG_DB_PASS=${BLOG_DB_PASS:-blog}
 function createDB() {
   
     echo "=> Creating db=$BLOG_DB"
-    mysql -u admin  -psecret -h $DB_HOST -P $DB_PORT  -e "CREATE DATABASE $BLOG_DB"
+    mysql -u admin  -psecret -h $DB_HOST -P $DB_PORT  -e "CREATE DATABASE IF NOT EXISTS $BLOG_DB"
     echo "=> Done"
 }
 
