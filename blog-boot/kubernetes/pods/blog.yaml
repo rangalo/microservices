@@ -1,0 +1,10 @@
+piVersion: v1
+kind: Pod
+metadata:
+  name: blog
+spec:
+  restartPolicy: Never
+  containers:
+
+  - name: blog-boot
+    image: rangalo/blog_boot:v1 

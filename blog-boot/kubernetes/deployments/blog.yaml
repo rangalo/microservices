@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: blog
+    labels:
+        app: blog
+spec:
+    type: LoadBalancer
+    selector:
+        app: blog
+    ports:
+    - port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-deployment
+  labels:
+    app: blog
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: blog
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+      - name: boot-blog
+        image: rangalo/blog_boot:v1
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+            httpGet:
+                path: /v1/resources/info
+                port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3
