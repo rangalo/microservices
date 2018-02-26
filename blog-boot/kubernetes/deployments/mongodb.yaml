@@ -37,8 +37,8 @@ spec:
   template:
     metadata:
       labels:
-        app: mongo
-        environment: test
+        - app: mongo
+          environment: test
     spec:
       terminationGracePeriodSeconds: 10
       containers:
