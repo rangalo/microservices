@@ -32,10 +32,12 @@ metadata:
 spec:
   serviceName: "mongo"
   replicas: 3
+  selector:
+      app: mongo
   template:
     metadata:
       labels:
-        role: mongo
+        app: mongo
         environment: test
     spec:
       terminationGracePeriodSeconds: 10
@@ -45,7 +47,7 @@ spec:
           command:
             - mongod
             - "--replSet"
-            - rs0
+             rs0
             - "--bind_ip"
             - 0.0.0.0
             - "--smallfiles"
@@ -59,4 +61,4 @@ spec:
           image: cvallance/mongo-k8s-sidecar
           env:
             - name: MONGO_SIDECAR_POD_LABELS
-              value: "role=mongo,environment=test"
+              value: "app=mongo,environment=test"
