@@ -1,7 +1,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: pv-volume
+  name: pv-volume-0
   labels:
     type: local
 spec:
@@ -11,4 +11,34 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/tmp/mongo/"
+    path: "/tmp/mongo_0/"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-volume-1
+  labels:
+    type: local
+spec:
+  storageClassName: fast
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/mongo_1/"
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-volume-2
+  labels:
+    type: local
+spec:
+  storageClassName: fast
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/mongo_2/"
